@@ -1,0 +1,45 @@
+body {
+    background: #000;
+    color: #fff;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@font-face {
+    font-family: neon;
+    src: url(hello-denver-display.denver-display-regular-regular.ttf)
+}
+
+.neon-text {
+    --interval: 1s;
+    display: block;
+    text-shadow:
+        0 0 10px var(--color1),
+        0 0 20px var(--color2),
+        0 0 40px var(--color3),
+        0 0 80px var(--color4);
+    will-change: filter, color;
+    filter: saturate(60%);
+    animation: flicker steps(100) var(--interval) 1s infinite;
+
+    font-family: neon;
+    font-size: 20em;
+    color: #ffd5fe;
+    --color1: #ff85fb;
+    --color2: #fa5ff4;
+    --color3: #fd25f5;
+    --color4: #ff00f5;
+}
+
+@keyframes flicker {
+    30% {
+        color: white;
+        filter: saturate(200%) hue-rotate(20deg);
+    }
+}
